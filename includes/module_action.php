@@ -44,21 +44,21 @@ if ($service == "3g_4g") {
 	
     if ($action == "start") {
 	
-        $exec = "$bin_cp FruityWifi_Mobile /etc/NetworkManager/system-connections/";
+        $exec = "$bin_cp BlackBulb_Mobile /etc/NetworkManager/system-connections/";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         $exec = "$bin_sleep 2";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         $exec = "$bin_nmcli -t nm wwan on";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
-        $exec = "$bin_nmcli -t con up id FruityWifi_Mobile >/dev/null &";
+        $exec = "$bin_nmcli -t con up id BlackBulb_Mobile >/dev/null &";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         //header('Location: ../../action.php?page='.$mod_name.'&wait=4');
         //exit;
@@ -66,15 +66,15 @@ if ($service == "3g_4g") {
 	    
     } else if ($action == "stop") {
     
-        $exec = "$bin_nmcli -t con down id FruityWifi_Mobile >/dev/null &";
+        $exec = "$bin_nmcli -t con down id BlackBulb_Mobile >/dev/null &";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         $exec = "$mod_path -t nm wwan off";
         //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
-        $exec = "$bin_nmcli -n c delete id FruityWifi_Mobile";
+        exec_blackbulb($exec);
+        $exec = "$bin_nmcli -n c delete id BlackBulb_Mobile";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
     
     }
 }
@@ -83,11 +83,11 @@ if ($install == "install_$mod_name") {
 
     $exec = "$bin_chmod 755 install.sh";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header('Location: ../../install.php?module='.$mod_name);
     exit;

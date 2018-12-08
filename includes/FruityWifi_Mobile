@@ -1,5 +1,5 @@
 [connection]
-id=FruityWifi_Mobile
+id=BlackBulb_Mobile
 uuid=d100211e-35d4-4927-8a0a-000000000000
 type=gsm
 permissions=user:root:;
